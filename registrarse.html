@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>.foto-preview {
+    width: 150px; /* Ajusta el tamaño según lo necesites */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ccc; /* Cambia el color según tu diseño */
+    margin: 20px auto; /* Centra el contenedor */
+  }
+  
+  .foto-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }</style>
+  
+
+   <script>
+    function formValidation() {
+      form = document.getElementById('form-register');
+      nombre = $("#nombre").val();
+      apellidos = $("#apellidos").val();
+      correo = $("#correo").val();
+      pass = $("#pass").val();
+      codigo = $("#codigo").val();
+      
+      if (!nombre || !apellidos || !correo || !pass || !codigo) {
+          $("#error-div").show();
+          $("#error-msj").html("<span>Faltan campos por llenar</span>");
+          setTimeout(function() {
+              $("#error-div").hide();
+          }, 2000);
+      } else {
+          // Crear un objeto FormData para incluir los archivos
+          var formData = new FormData(form);
+  
+          $.ajax({
+              url: 'registro_alumnos.php', // Archivo PHP que maneja la inserción en la base de datos
+              type: 'POST',
+              data: formData,
+              processData: false,  // Para que jQuery no procese los datos
+              contentType: false,  // Para que jQuery no establezca el tipo de contenido
+              success: function(response) {
+                  // Aquí puedes manejar la respuesta del servidor
+                  console.log(response);
+                  window.location.href = "sesion.html";
+              },
+              error: function(xhr, status, error) {
+                  console.error(error);
+                  alert("Hubo un error al agregar el alumno");
+              }
+          });
+      }
+  }
+  
+          
+</script>
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Registrate</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              LabCei
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">INICIO <span class="sr-only">(current)</span></a>
+                </li>
+            
+                <li class="nav-item">
+                  <a class="nav-link" href="sesion.html"> INICIAR SESION </a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+            <div class="quote_btn-container  d-flex justify-content-center">
+              <a href="">
+                LabCei
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- buy section -->
+
+  <section class="buy_section layout_padding">
+    <div class="container">
+      <h2>
+        REGISTRATE AHORA EN LABCEI
+      </h2>
+    </div>
+  </section>
+  <!-- Formulario de Registro -->
+<section class="register_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div id="foto-preview" class="foto-preview">
+        <img id="preview-img" src="https://www.pngall.com/wp-content/uploads/5/Profile.png" />
+    </div>
+      <div class="col-md-6 offset-md-3">
+        <div class="register_form">
+          <form action="registro_alumnos.php" id="form-register" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <input type="text" class="form-control" name="nombre" id ="nombre" placeholder="Nombre(s)" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="apellidos" id ="apellidos" placeholder="Apellidos" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="correo" id ="correo" placeholder="Correo de Alumno" required>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="contrasena" id ="pass" placeholder="Contraseña" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="codigo" id ="codigo" placeholder="Código de alumno" required>
+            </div>
+            <div class="form-group">
+              <input type="file" class="form-control" id="foto" name="foto" accept="image/*" onchange="previewImage();">
+          </div>
+            <div class="form-group">
+              <button type="button" class="register-button" onclick="formValidation();">Registrarse</button>
+              <div " id="error-div">
+                <span  id="error-msj"></span>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Fin del Formulario de Registro -->
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="info_items">
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-1">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                Ubicacion
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-2">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                3331765765
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-3">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                labcei@gmail.com
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2024 LabCei
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+  <script>function previewImage() {
+    const file = document.getElementById('foto').files[0];
+    const preview = document.getElementById('preview-img');
+    
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        preview.src = e.target.result; // Establece la fuente de la imagen a la carga
+    }
+    
+    if (file) {
+        reader.readAsDataURL(file); // Lee el archivo como una URL de datos
+    }
+}
+</script>
+
+</body>
+
+</html>

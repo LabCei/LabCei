@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>LabCei</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body background="images/PrincipalRedimensionado.png">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              LABCEI
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" id="logout-link" href="index.html">CERRAR SESION <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="conceptos.html">CONCEPTOS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="practicas.html">PRACTICAS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">CONTACTO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="registrarse.html">REGISTRARSE</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+            </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <img src="images/ProfeMejorado.png" class="profesora" style="width: 20%; margin-left:5%;">
+  <img src="images/mesa.png" class="mesa2">
+  <img src="images/estante.png" class="estante">
+  <img src="imgp2/instruccion1.png" class="es" id="imagenAnimada">
+  <img src="imgp2/instruccion2.png" class="es es2 hidden" id="imagenAnimada2">
+  <img src="imgp2/instruccion3.png" class="es2 es3 hidden" id="imagenAnimada3">
+  <img src="imgp2/instruccion4.png" class="es3 es4 hidden" id="imagenAnimada4">
+  <img id="pipeta" onclick="changePipeta()" src="imgp2/pipeta.png" class="pipeta" > 
+  <img id="agua" onclick="changeAgua()" src="imgp2/aguaa.png" class="contenedor_agua" title="Agua"ondblclick="pipeta_agua()" >
+  <img id="cobre" onclick="changeCobre()" src="imgp2/cobree.png" class="contenedor_cobre" title="Cloruro de cobre"ondblclick="pipeta_cobre()" > 
+  <img id="acido" onclick="changeAcido()" src="imgp2/acidoo.png" class="contenedor_acido" title="Ácido clorhídrico"ondblclick="pipeta_acido()" > 
+  <img id="azufre" onclick="changeAzufre()" src="imgp2/azufree.png" class="azufre" title="1g de azufre"ondblclick="reacciones()" > 
+  <img id="calcio" onclick="changeCalcio()" src="imgp2/calcioo.png" class="calcioo" title="1g de calcio" ondblclick="reaccion2()" > 
+  <img id="zinc" onclick="changeZinc()" src="imgp2/zincc.png" class="zincc" title="1g de zinc" ondblclick="reaccion3()" > 
+  <img id = "cinta" onclick="changeCinta()" src="imgp2/cintaa.png" class="cinta" title="1g de cinta de magnesio" ondblclick="reaccion4()" >
+  <img id="porfavor" onclick="changePor()" src="imgp2/porfavor.png" class="porfa1" title="1g de Carbon" ondblclick="reaccion5()" >
+  <img id="ultimo" onclick="changeUltimo()" src="imgp2/cobreee.png" class="ultimo" title="1g de Cobre" ondblclick="reaccion6()" >
+  <img id="dios" onclick="conductimetro()" src="imgp2/dios.png" class="conductimetro"  > 
+  <img id="mensaje" src ="imgp2/indi1.png" class="informe">
+  
+  <script>
+                                              
+      setTimeout(function() {
+        document.getElementById('imagenAnimada').classList.add('hidden');
+      }, 5000); // 
+
+      setTimeout(function() {
+        document.getElementById('imagenAnimada2').classList.add('hidden');
+      }, 10000); // 
+
+      setTimeout(function() {
+        document.getElementById('imagenAnimada3').classList.add('hidden');
+      }, 15000); // 
+
+      setTimeout(function() {
+        document.getElementById('imagenAnimada4').classList.add('hidden');
+      }, 20000); // 
+</script>
+
+
+<script>
+
+      // Espera 5 segundos antes de ocultar .es y .es2
+     setTimeout(function() {
+       document.getElementById('imagenAnimada').classList.add('hidden');
+       document.querySelector('.es2').classList.add('hidden');
+     }, 5000);
+
+     // Espera 5 segundos antes de mostrar .es2
+     setTimeout(function() {
+       document.querySelector('.es2').classList.remove('hidden');
+     }, 5000);
+
+     // Mostrar la imagen .es3 después de 10 segundos
+     setTimeout(function() {
+       document.querySelector('.es3').classList.remove('hidden');
+     }, 10000);
+   </script>
+
+   <script>
+     setTimeout(function() {
+     document.getElementById('imagenAnimada').classList.add('hidden');
+     document.querySelector('.es3').classList.add('hidden');
+   }, 10000);
+
+   // Espera 5 segundos antes de mostrar .es2
+   setTimeout(function() {
+     document.querySelector('.es3').classList.remove('hidden');
+   }, 10000);
+
+   // Mostrar la imagen .es3 después de 10 segundos
+   setTimeout(function() {
+     document.querySelector('.es4').classList.remove('hidden');
+   }, 15000);
+   </script>
+
+   <script>
+     setTimeout(function() {
+     document.getElementById('imagenAnimada').classList.add('hidden');
+     document.querySelector('.es4').classList.add('hidden');
+   }, 15000);
+
+   // Espera 5 segundos antes de mostrar .es2
+   setTimeout(function() {
+     document.querySelector('.es4').classList.remove('hidden');
+   }, 15000);
+
+   // Mostrar la imagen .es3 después de 10 segundos
+   setTimeout(function() {
+     document.querySelector('.es5').classList.remove('hidden');
+   }, 20000);
+   </script>
+
+  <script>
+    function conductimetro(){
+        var dios = document.getElementById('dios');
+             if (dios.src.match("on")) {
+            dios.src = "imgp2/dios.png";
+                                
+            } else {
+                                            
+           dios.src = "imgp2/dios.png";
+           dios.classList="conductimetro2";
+            
+                                            
+          }
+                   
+              } 
+   
+   </script>
+  
+   <script>
+              function reaccion6(){
+                    var ultimo= document.getElementById('ultimo');
+                    var pipeta= document.getElementById('pipeta');
+                    
+                    if(pipeta.src.match("imgp2/pipeta_agua.png")){
+                          ultimo.src="imgp2/reaccioncobre.png";
+                          mensaje.src="imgp2/reaccionaguacobre.png";
+                    } else if (pipeta.src.match("imgp2/pipeta_acido.png")){
+                          ultimo.src="imgp2/acidocobre.png";
+                          mensaje.src="imgp2/reaccionacidocobre.png";
+                    }else if  (pipeta.src.match("imgp2/pipeta_cloruro.png")){
+                          ultimo.src="imgp2/clorurocobre.png";
+                          mensaje.src="imgp2/reaccionclorurocobre.png";
+                          
+                    }
+              } 
+              </script>
+   <script>
+              function reaccion5(){
+                    var porfavor= document.getElementById('porfavor');
+                    var pipeta= document.getElementById('pipeta');
+                    
+                    if(pipeta.src.match("imgp2/pipeta_agua.png")){
+                          porfavor.src="imgp2/reaccioncarbon.png";
+                          mensaje.src="imgp2/reaccionaguacalcio.png";
+                    } else if (pipeta.src.match("imgp2/pipeta_acido.png")){
+                          porfavor.src="imgp2/acidocarbon.png";
+                          mensaje.src="imgp2/acidocarboon.png";
+                    }else if  (pipeta.src.match("imgp2/pipeta_cloruro.png")){
+                    porfavor.src="imgp2/clorurocarbon.png";
+                    mensaje.src="imgp2/clorcarbon.png";
+              }
+              }
+              </script>
+ 
+ 
+ 
+ <script>
+        function reacciones(){
+              var azufre= document.getElementById('azufre');
+              var pipeta= document.getElementById('pipeta');
+              
+              if(pipeta.src.match("imgp2/pipeta_agua.png")){
+                    azufre.src="imgp2/reaccion1.png";
+                    mensaje.src="imgp2/reaccionaguaazufre.png";
+              } else if (pipeta.src.match("pipeta_acido.png")){
+                    azufre.src="imgp2/acidoazufre.png";
+                    mensaje.src="imgp2/reaccionacidoazufre.png";
+              }else  if (pipeta.src.match("imgp2/pipeta_cloruro.png")){
+                    azufre.src="imgp2/cloruroazufre.png";
+                    mensaje.src="imgp2/reaccioncloruroazufre.png";
+              }
+        }
+        </script>
+
+        <script>
+        function reaccion2(){
+        var pipeta= document.getElementById('pipeta');
+        var calcio=document.getElementById('calcio');
+        if(pipeta.src.match("imgp2/pipeta_agua.png")){
+                    calcio.src="imgp2/reaccioncalcio.png";
+                    calcio.classList="cal";
+                    mensaje.src="imgp2/reaccionaguacarbon.png";
+              } else if (pipeta.src.match("imgp2/pipeta_acido.png")){
+                    calcio.src="imgp2/acidocalcio.png";
+                    mensaje.src="imgp2/reaccionacidocalcio.png";
+              }else if  (pipeta.src.match("imgp2/pipeta_cloruro.png")){
+                    calcio.src="imgp2/clorurocalcio.png";
+                    mensaje.src="imgp2/reaccionclorurocalcio.png";
+              }
+        }
+  
+  
+  </script>
+
+  <script>
+              function reaccion3(){
+              var pipeta= document.getElementById('pipeta');
+              var zinc=document.getElementById('zinc');
+              if(pipeta.src.match("imgp2/pipeta_agua.png")){
+                          zinc.src="imgp2/reaccionzinc.png";
+                          mensaje.src="imgp2/reaccionaguazinc.png";
+                    }else if (pipeta.src.match("imgp2/pipeta_acido.png")){
+                          zinc.src="imgp2/acidozinc.png";
+                          mensaje.src="imgp2/reaccionacidozinc.png";
+                    }else if (pipeta.src.match("imgp2/pipeta_cloruro.png")){
+                          zinc.src="imgp2/clorurozinc.png";
+                          mensaje.src="imgp2/reaccionclorurozinc.png";
+                    }
+              }
+        
+        
+        </script>
+
+  <script>
+              function reaccion4(){
+              var pipeta= document.getElementById('pipeta');
+              var cinta=document.getElementById('cinta');
+              if(pipeta.src.match("imgp2/pipeta_agua.png")){
+                          cinta.src="imgp2/reaccioncinta.png";
+                          mensaje.src="imgp2/reaccionaguacinta.png";
+                    }else if (pipeta.src.match("imgp2/pipeta_acido.png")){
+                          cinta.src="imgp2/acidocinta.png";
+                          mensaje.src="imgp2/reaccionacidocinta.png";
+                    } else if (pipeta.src.match("imgp2/pipeta_cloruro.png")){
+                          cinta.src="imgp2/clorurocinta.png";
+                          mensaje.src="imgp2/reaccionclorurocinta.png";
+                    }
+              
+              }
+        
+        
+        </script>
+  
+  
+  
+  
+  <script>
+        function pipeta_acido() {
+          var ac = document.getElementById('pipeta');
+             if (ac.src.match("on")) {
+            ac.src = "imgp2/pipeta.png";
+                                
+            } else {
+                                            
+           ac.src = "imgp2/pipeta_acido.png";
+            
+                                            
+          }
+
+
+         }
+          </script>
+   
+
+
+
+
+   <script>
+        function pipeta_cobre() {
+          var co = document.getElementById('pipeta');
+             if (co.src.match("on")) {
+            co.src = "imgp2/pipeta.png";
+                                
+            } else {
+                                            
+           co.src = "imgp2/pipeta_cloruro.png";
+            
+                                            
+          }
+
+
+         }
+          </script>
+
+
+
+
+   <script>
+        function pipeta_agua() {
+          var pa = document.getElementById('pipeta');
+             if (pa.src.match("on")) {
+            pa.src = "imgp2/pipeta.png";
+                                
+            } else {
+                                            
+           pa.src = "imgp2/pipeta_agua.png";
+            
+                                            
+          }
+
+
+         }
+          </script>
+
+
+
+
+
+   <script>
+        function changeUltimo() {
+          var ultimo = document.getElementById('ultimo');
+             if (ultimo.src.match("on")) {
+            ultimo.src = "imgp2/cobreee.png";
+                                
+            } else {
+                                            
+           ultimo.src = "imgp2/cobreee.png";
+            ultimo.classList="ultimo2";
+                                            
+          }
+
+
+         }
+          </script>
+
+
+
+   <script>
+        function changePor() {
+          var porfavor = document.getElementById('porfavor');
+             if (porfavor.src.match("on")) {
+            porfavor.src = "imgp2/porfavor.png";
+                                
+            } else {
+                                            
+           porfavor.src = "imgp2/porfavor.png";
+            porfavor.classList="porfa2";
+                                            
+          }
+
+
+         }
+          </script>
+
+
+   <script>
+        function changeCinta() {
+          var cinta = document.getElementById('cinta');
+             if (cinta.src.match("on")) {
+            cinta.src = "imgp2/cintaa.png";
+                                
+            } else {
+                                            
+           cinta.src = "imgp2/cintaa.png";
+            cinta.classList="cinta2";
+                                            
+          }
+
+
+         }
+          </script>
+
+
+                                          
+   <script>
+  function changePipeta() {
+    var pipeta = document.getElementById('pipeta');
+       if (pipeta.src.match("on")) {
+      pipeta.src = "imgp2/pipeta.png";
+                          
+      } else {
+                                      
+     pipeta.src = "imgp2/pipeta.png";
+   pipeta.classList ="pipeta2";
+                                      
+    }
+
+
+   }
+    </script>
+     
+   
+                              
+   <script>
+  function changeAgua() {
+    var agua = document.getElementById('agua');
+       if (agua.src.match("on")) {
+      agua.src = "imgp2/aguaa.png";
+                          
+      } else {
+                                      
+  
+                                      
+    }
+
+
+   }
+    </script>
+
+  <script>
+        function changeCobre() {
+        var cobre = document.getElementById('cobre');
+        if (cobre.src.match("on")) {
+        cobre.src = "imgp2/cobree.png";
+                                
+        } else {
+                                            
+  
+                                            
+        }
+
+
+        }
+        </script>
+
+        <script>
+              function changeAcido() {
+              var acido = document.getElementById('acido');
+              if (acido.src.match("on")) {
+              acido.src = "imgp2/acidoo.png";
+                                      
+              } else {
+                                                  
+             
+              }
+
+
+              }
+              </script>
+
+        <script>
+              function changeAzufre() {
+              var azufre = document.getElementById('azufre');
+              if (azufre.src.match("on")) {
+              azufre.src = "imgp2/azufree.png";
+                                      
+              } else {
+                                                  
+              azufre.src = "imgp2/azufree.png";
+              azufre.classList ="azufre2";
+                                                  
+              }
+
+
+              }
+              </script>
+
+              <script>
+                    function changeCalcio() {
+                    var calcio = document.getElementById('calcio');
+                    if (calcio.src.match("on")) {
+                    calcio.src = "imgp2/calcioo.png";
+                                            
+                    } else {
+                                                        
+                    calcio.src = "imgp2/calcioo.png";
+                    calcio.classList ="calcioo2";
+                                                        
+                    }
+
+
+                    }
+                    </script>
+
+              
+              <script>
+                    function changeZinc() {
+                    var zinc = document.getElementById('zinc');
+                    if (zinc.src.match("on")) {
+                    zinc.src = "imgp2/zincc.png";
+                                            
+                    } else {
+                                                        
+                    zinc.src = "imgp2/zincc.png";
+                    zinc.classList ="zincc2";
+                                                        
+                    }
+
+
+                    }
+
+                    </script>
+
+<script>
+var xInic, yInic;
+var estaPulsado = false;
+
+function ratonPulsado(evt) { 
+//Obtener la posición de inicio
+xInic = evt.clientX;
+yInic = evt.clientY;    
+estaPulsado = true;
+//Para Internet Explorer: Contenido no seleccionable
+document.getElementById("pipeta").unselectable = true;
+}
+</script>
+<script>
+function ratonMovido(evt) {
+if(estaPulsado) {
+   //Calcular la diferencia de posición
+   var xActual = evt.clientX;
+   var yActual = evt.clientY;    
+   var xInc = xActual-xInic;
+   var yInc = yActual-yInic;
+   xInic = xActual;
+   yInic = yActual;
+   
+   //Establecer la nueva posición
+   var elemento = document.getElementById("pipeta");
+   var position = getPosicion(elemento);
+   elemento.style.top = (position[0] + yInc) + "px";
+   elemento.style.left = (position[1] + xInc) + "px";
+}
+}
+</script>
+<script>
+function ratonSoltado(evt) {
+estaPulsado = false;
+var image = document.getElementById('pipeta');
+if (image.src.match("on")) {
+image.src="imgp2/pipeta.png";
+}else{
+image.src="imgp2/pipeta.png";
+image.classList="pipeta2";
+}
+}
+</script>
+
+<script>
+/*
+* Función para obtener la posición en la que se encuentra el
+* elemento indicado como parámetro.
+* Retorna un array con las coordenadas x e y de la posición
+*/
+function getPosicion(elemento) {
+var posicion = new Array(2);
+if(document.defaultView && document.defaultView.getComputedStyle) {
+   posicion[0] = parseInt(document.defaultView.getComputedStyle(elemento, null).getPropertyValue("top"))
+   posicion[1] = parseInt(document.defaultView.getComputedStyle(elemento, null).getPropertyValue("left"));
+} else {
+   //Para Internet Explorer
+   posicion[0] = parseInt(elemento.currentStyle.top);             
+   posicion[1] = parseInt(elemento.currentStyle.left);               
+}      
+return posicion;
+}
+
+var el = document.getElementById("pipeta");
+if (el.addEventListener){
+el.addEventListener("mousedown", ratonPulsado, false);
+el.addEventListener("mouseup", ratonSoltado, false);
+document.addEventListener("mousemove", ratonMovido, false);
+} else { //Para IE
+el.attachEvent('onmousedown', ratonPulsado);
+el.attachEvent('onmouseup', ratonSoltado);
+document.attachEvent('onmousemove', ratonMovido);
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+var xInic, yInic;
+var estaPulsado = false;
+
+function ratonPulsado(evt) { 
+//Obtener la posición de inicio
+xInic = evt.clientX;
+yInic = evt.clientY;    
+estaPulsado = true;
+//Para Internet Explorer: Contenido no seleccionable
+document.getElementById("pipeta").unselectable = true;
+}
+</script>
+<script>
+function ratonMovido(evt) {
+if(estaPulsado) {
+   //Calcular la diferencia de posición
+   var xActual = evt.clientX;
+   var yActual = evt.clientY;    
+   var xInc = xActual-xInic;
+   var yInc = yActual-yInic;
+   xInic = xActual;
+   yInic = yActual;
+   
+   //Establecer la nueva posición
+   var elemento = document.getElementById("pipeta");
+   var position = getPosicion(elemento);
+   elemento.style.top = (position[0] + yInc) + "px";
+   elemento.style.left = (position[1] + xInc) + "px";
+}
+}
+</script>
+<script>
+function ratonSoltado(evt) {
+estaPulsado = false;
+var image = document.getElementById('pipeta');
+if (image.src.match("on")) {
+image.src="imgp2/pipeta.png";
+}else{
+image.src="imgp2/pipeta.png";
+image.classList="pipeta2";
+}
+}
+</script>
+
+<script>
+/*
+* Función para obtener la posición en la que se encuentra el
+* elemento indicado como parámetro.
+* Retorna un array con las coordenadas x e y de la posición
+*/
+function getPosicion(elemento) {
+var posicion = new Array(2);
+if(document.defaultView && document.defaultView.getComputedStyle) {
+   posicion[0] = parseInt(document.defaultView.getComputedStyle(elemento, null).getPropertyValue("top"))
+   posicion[1] = parseInt(document.defaultView.getComputedStyle(elemento, null).getPropertyValue("left"));
+} else {
+   //Para Internet Explorer
+   posicion[0] = parseInt(elemento.currentStyle.top);             
+   posicion[1] = parseInt(elemento.currentStyle.left);               
+}      
+return posicion;
+}
+
+var el = document.getElementById("pipeta");
+if (el.addEventListener){
+el.addEventListener("mousedown", ratonPulsado, false);
+el.addEventListener("mouseup", ratonSoltado, false);
+document.addEventListener("mousemove", ratonMovido, false);
+} else { //Para IE
+el.attachEvent('onmousedown', ratonPulsado);
+el.attachEvent('onmouseup', ratonSoltado);
+document.attachEvent('onmousemove', ratonMovido);
+}
+
+
+</script>
+
+<script>
+// Clase para gestionar el movimiento de cualquier elemento
+movimiento=function(div)
+{
+// Estas variables obtienen la diferencia en pixels entre el punto del raton
+// pulsado dentro del div y el top y left del elemento. Es para que cuando 
+// realizemos el movimiento, el cursor del raton siempre este en la misma
+// posición dentro del div que mueve.
+difX=0;
+difY=0;
+
+// Creamos el evento en el div para controlar la pulsación sobre el elemento
+// cuando se pulsa sobre el elemento se ejecuta la funcion inicio()
+div.addEventListener('mousedown',inicio,false);
+
+// Iniciamos el arrastre
+function inicio(e)
+{
+// Obtenemos la posición del raton
+var eX=e.pageX;
+var eY=e.pageY;
+// Obtenemos los valores de la posicion left y top del elemento
+var oX=parseInt(div.style.left);
+var oY=parseInt(div.style.top);
+// Calculamos la diferencia entre la posicion del div con la del raton.
+difX=oX-eX;
+difY=oY-eY;
+
+// Cremos los eventos mousemove y mouseup
+document.addEventListener('mousemove',mover,false);
+document.addEventListener('mouseup',soltar,false);
+}
+
+// Movemos el elemento por la pantalla cada vez que se mueve el cursor
+function mover(e)
+{
+var tY=e.pageY+difY+'px';
+var tX=e.pageX+difX+'px'
+div.style.top=tY;
+div.style.left=tX;
+}
+
+// Funcion que se ejecuta el botón del ratón
+function soltar(e)
+{
+// Eliminamos los eventos creados en la funcion inicio
+document.removeEventListener('mousemove',mover,false);
+document.removeEventListener('mouseup',soltar,false);
+}
+}
+
+// Inicializamos el movimiento del div con id "arrastrar"
+var recu1=new movimiento(document.getElementById("dios"));
+</script>
+
+<style>
+  body {
+      background-image: url('images/PincipalRedimensionado.png');
+      background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+      background-repeat: no-repeat; /* Evita que la imagen se repita */
+      background-position: center; /* Centra la imagen */
+      margin: 0; /* Elimina márgenes predeterminados */
+      height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
+  }
+</style>
+
+<script>
+  document.getElementById('logout-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita que el enlace se siga de inmediato
+    Swal.fire({
+      title: 'CERRAR LABCEI',
+      text: "Estas Seguro de Cerrar Sesion!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#0d5c71 ',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Cerrar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'SALISTE DE LABCEI',
+          'Cerrada Correctamente.',
+          'success'
+        ).then(() => {
+          window.location.href = this.href; // Redirige si el usuario confirma
+        });
+      }
+    });
+  });
+</script> 
+
+</body>
+
+
+</body>
+</html>

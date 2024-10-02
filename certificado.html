@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado LabCei</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh; /* Asegúrate de ocupar todo el alto de la ventana */
+            background-color: aliceblue;
+            background-size: cover; /* Para cubrir toda la pantalla */
+            background-position: center; /* Centrar la imagen */
+            font-family: 'Arial', sans-serif;
+        }
+        .certificate {
+            border: 10px solid #0d5c71;
+            padding: 50px;
+            background-image: url('images/certificado.png'); /* Corregido */
+            width: 800px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative; /* Para asegurar que el contenido esté bien posicionado */
+        }
+        h1 {
+            color: #0d5c71;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .recipient {
+            font-size: 1.8em;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #333;
+        }
+        .description {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #555;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 1em;
+            color: #777;
+        }
+        .date {
+            margin-top: 30px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <h1>Certificado de Finalización</h1>
+        <div class="recipient">Este certificado se otorga a:</div>
+        <div class="recipient" id="recipient-name">[Nombre del Estudiante]</div>
+        <div class="description">
+            Por haber completado con éxito el curso de <strong>LabCei</strong>.
+        </div>
+           SCORE:
+           <br>
+           <br>
+           70
+           <br>
+           <br>  
+        <div class="footer">
+            Fecha: <span class="date" id="date">[Fecha]</span>
+        </div>
+        <br><br>
+        <button id="generate-pdf">Descargar Certificado</button>
+    </div>
+
+    <script>
+        // Personalizar el certificado
+        document.getElementById('recipient-name').innerText = "Ali Gonzalez Huerta";
+        document.getElementById('date').innerText = new Date().toLocaleDateString();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('generate-pdf').addEventListener('click', function () {
+            const element = document.querySelector('.certificate');
+            html2pdf()
+                .set({
+                    margin: 1,
+                    filename: 'certificado.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' } // Formato horizontal (landscape)
+                })
+                .from(element)
+                .save();
+        });
+    </script>
+</body>
+</html>

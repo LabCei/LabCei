@@ -1,0 +1,474 @@
+.informe{
+    width: 23.4%;
+    height: 25%;
+    position: absolute;
+    left: 75%;
+    top: 69%;
+    
+
+}
+.conductimetro{
+    width: 15%;
+    position: absolute;
+    top: 49%;
+    left:80%;
+}
+.conductimetro2{
+    width: 15%;
+    position: absolute;
+    top: 55%;
+    left:30%;
+}
+.cal{
+    width: 19%;
+    position: absolute;
+    top: 45%;
+    left:39%
+}
+.ultimo{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:74%
+}
+.ultimo2{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:36%;
+}
+.porfa1{
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left:87.5%
+}
+.porfa2{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:65%;
+}
+.cinta{
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left:92%
+}
+.cinta2{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:59%;
+}
+.uno{
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left:87.5%;
+}
+.dos{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:101%;
+}
+.zincc{
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left:83%
+}
+.zincc2{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:53%
+}
+.calcioo{
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left:78.5%
+}
+.calcioo2{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:43%
+}
+.azufre{
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left:74%
+
+}
+.azufre2{
+    width: 8%;
+    position: absolute;
+    top: 50%;
+    left:30%
+}
+.contenedor_agua{
+    width: 5%;
+    position: absolute;
+    top: 13%;
+    left:80%
+}
+.contenedor_agua2{
+    width: 5%;
+    position: absolute;
+    top: 52%;
+    left:33%
+}
+.contenedor_cobre{
+    width: 5%;
+    position: absolute;
+    top: 13%;
+    left:85%
+}
+.contenedor_cobre2{
+    width: 5%;
+    position: absolute;
+    top: 52%;
+    left:38%
+}
+.contenedor_acido{
+    width: 5%;
+    position: absolute;
+    top: 13%;
+    left:90%
+}
+.contenedor_acido2{
+    width: 5%;
+    position: absolute;
+    top: 52%;
+    left:43%
+}
+.pipeta{
+    width: 5%;
+    position: absolute;
+    top: 14%;
+    left: 76%;
+}
+.pipeta2{
+    width: 5%;
+    position: absolute;
+    top: 58%;
+    left: 29%;
+}
+.completado{
+    width: 23.5%;
+    height: 25%;
+    position: absolute;
+    left: 38%;
+    top: 40%
+}
+.indicacion2{
+    width: 23.4%;
+    height: 25%;
+    position: absolute;
+    top: 74%;
+    left: 38%;
+}
+.info {
+
+    width: 23.4%;
+    height: 25%;
+    position: absolute;
+    left: 75%;
+    top: 65%;
+    
+
+}
+.profesora{
+    position: absolute;
+    width: 10%;
+    top: 10%;
+    left: 0%
+}
+.mesa{
+    position: absolute;
+    width: 45%;
+    top: 40%;
+    left: 30%;
+}
+.mesa2{
+    position: absolute;
+    width: 45%;
+    top: 60%;
+    left: 28%;
+}
+.estante{
+    position: absolute;
+    
+    width: 30%;
+    top: 25%;
+    left: 72%;
+}
+.estante2{
+    position: absolute;
+    
+    width: 30%;
+    top: 10%;
+    left: 72%;
+}
+
+.animation *:hover
+{
+    transition: 0.5s;
+    transform: scale(1.1);
+    cursor: pointer;
+    z-index: 5;
+}
+
+.sodio{
+    position: absolute;
+    width:5.1%;
+    top: 26.5%;
+    left: 92.5%;
+}
+.sodio2{
+    position: absolute;
+    width:5%;
+    top: 63.5%;
+    left: 45%;
+}
+.calcio{
+    position: absolute;
+    width:5.1%;
+    top: 45.5%;
+    left: 93.5%;
+}
+.calcio2{
+    position: absolute;
+    width:7%;
+    top: 60.5%;
+    left: 50%;
+}
+
+
+.potasio{
+    position: absolute;
+    width:5.1%;
+    top: 45.5%;
+    left: 88%;
+}
+.potasio2{
+    position: absolute;
+    width:5%;
+    top: 61%;
+    left: 55%;
+}
+
+.litio{
+    position: absolute;
+    width:5.9%;
+    top: 46%;
+    left: 82.5%;
+}
+.litio2{
+    position: absolute;
+    width:4%;
+    top: 62%;
+    left: 60%;
+}
+
+.cobre{
+    position: absolute;
+    width:5.8%;
+    top: 46.3%;
+    left: 77%;
+}
+.cobre2{
+    position: absolute;
+    width:5%;
+    top: 63%;
+    left: 64%;
+}
+.lapiz{
+    position: absolute;
+    width:10%;
+    top: 29%;
+    left: 82%;
+}
+.lapiz2{
+    position: absolute;
+    width:10%;
+    top: 58%;
+    left: 28%;
+}
+.grafito{
+    position: absolute;
+    width:5%;
+    top: 21%;
+    left: 78%;
+}
+.grafito2{
+    position: absolute;
+    width:5%;
+    top: 37%;
+    left: 35%;
+}
+nav {
+	margin: 27px auto 0;
+
+	position: relative;
+	width: 630px;
+	height: 50px;
+	background-color: #34495e;
+	border-radius: 8px;
+	font-size: 0;
+}
+nav a {
+	line-height: 50px;
+	height: 100%;
+	font-size: 17px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+a:nth-child(1) {
+	width: 100px;
+}
+a:nth-child(2) {
+	width: 110px;
+}
+a:nth-child(3) {
+	width: 100px;
+}
+a:nth-child(4) {
+	width: 160px;
+}
+a:nth-child(5) {
+	width: 120px;
+}
+nav .start-practicas, a:nth-child(1):hover~.animation {
+	width: 100px;
+	left: 0;
+	background-color: #565c5b;
+}
+nav .start-inicio, a:nth-child(2):hover~.animation {
+	width: 110px;
+	left: 100px;
+	background-color: #565c5b;
+}
+nav .start-cuidados, a:nth-child(3):hover~.animation {
+	width: 100px;
+	left: 210px;
+	background-color: #565c5b;
+}
+nav .start-contact, a:nth-child(4):hover~.animation {
+	width: 160px;
+	left: 310px;
+	background-color: #565c5b;
+}
+nav .start-agradecimientos, a:nth-child(5):hover~.animation {
+	width: 120px;
+	left: 470px;
+	background-color: #565c5b;
+}
+.la {
+    animation-duration: 5s;
+    animation-name: la;
+    animation-direction: alternate;
+    position: absolute;
+    top: 150%;
+    left: 18%;
+    width: 50%;
+  }
+
+  @keyframes la {
+    from {
+      margin-left:100%;
+      width:60%
+    }
+    
+    to {
+     margin-left:0%;
+     width:50%;
+   }
+  }
+  .es{
+    animation-duration: 3s;
+    animation-name: es;
+    animation-direction: alternate;
+    position: absolute;
+    top: 190%;
+    left: 13%;
+    width: 50%;
+
+  }
+  @keyframes es {
+    from {
+      margin-left:100%;
+      width:60%
+    }
+    
+    to {
+     margin-left:0%;
+     width:50%;
+   }
+  }
+  .es2{
+    animation-duration: 3s;
+    animation-name: es;
+    animation-direction: alternate;
+    position: absolute;
+    top: 190%;
+    left: 60%;
+    width: 50%;
+  }
+  @keyframes es2 {
+    from {
+      margin-left:100%;
+      width:60%
+    }
+    
+    to {
+     margin-left:0%;
+     width:50%;
+   }
+  }
+  .practica{
+      width: 15%;
+      position: absolute;
+      top: 57%;
+      left: 35%;
+  }
+
+  
+  .practica2{
+    width: 15%;
+    position: absolute;
+    top: 57%;
+    left:55%;
+}
+.instrumentos{
+    width: 50%;
+    position: absolute;
+    top: 55%;
+    left:55%;
+}
+
+.cobres{
+    width: 7%;
+    position: absolute;
+    top: 6%;
+    left:86%;
+
+}

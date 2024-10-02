@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>LabCei</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body background="images/PrincipalRedimensionado.png">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              LABCEI
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" id="logout-link"  href="index.html">CERRAR SESION  <span class="sr-only">(current)</span></a>
+                </li>
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="conceptos.html">CONCEPTOS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="practicas.html">PRACTICAS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">CONTACTO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="registrarse.html">REGISTRARSE</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+            </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <img src="images/ProfeMejorado.png" class="profesora" style="width: 20%; margin-left:5%;">
+  <img src="images/mesa.png" class="mesa2">
+  <img src="images/estante.png" class="estante">
+  <img src="images/instruccion1.png" class="es" id="imagenAnimada">
+  <img src="images/instruccion2.png" class="es es2 hidden" id="imagenAnimada2">
+  <img src="images/instruccion3.png" class="es2 es3 hidden" id="imagenAnimada3">
+  <img src="images/instruccion4.png" class="es3 es4 hidden" id="imagenAnimada4">
+  <img src="images/instruccion5.png" class="es4 es5 hidden" id="imagenAnimada5">
+  <img src="images/instruccion6.png" class="es5 es6 hidden" id="imagenAnimada6">
+  <img src="images/instruccion7.png" class="es6 es7 hidden" id="imagenAnimada">
+  
+  <img id="myLapiz" onclick="changeLapiz()" src="images/Lapiz.png" class="lapiz" >
+  <img id="myImage" onclick="changeImage()" src="images/mechero.png" class="grafito"ondblclick="mecheros()"  > 
+  <img id="completado" src ="images/transparent.png" class="completado">
+  <img id="mensaje" src ="images/transparent.png" class="info">
+
+  <script>
+    function changeImage() {
+      var image = document.getElementById('myImage');
+         if (image.src.match("on")) {
+        image.src = "images/mechero.png";               
+        } else {                           
+       image.src = "images/mecheroon.png";
+     image.classList ="grafito2";                                
+      }
+     }
+     </script>
+
+    
+     <script>
+      function mecheros() {
+       var mechero = document.getElementById('myImage');
+       var myLapiz = document.getElementById('myLapiz');
+       var mensaje = document.getElementById('mensaje');
+       var completado = document.getElementById('completado');
+  
+      
+         if  (myLapiz.src.match("images/lapiz_sodio.png")) {
+         mechero.src = "images/mechero_sodio.png";
+         mensaje.src ="images/info1.png";
+        
+                 
+         } else if (myLapiz.src.match("images/lapiz_calcio.png")){
+           mechero.src="images/mechero_calcio.png";
+           mensaje.src ="images/info5.png";
+           
+         } else if (myLapiz.src.match("images/lapiz_cobre.png")){
+           mechero.src="images/mechero_cobre.png";
+           mensaje.src ="images/info2.png";
+          
+         } else if (myLapiz.src.match("images/lapiz_potasio.png")){
+           mechero.src="images/mechero_potasio.png";
+           mensaje.src ="images/info3.png";
+          
+          
+         } else if (myLapiz.src.match("images/lapiz_litio.png")){
+           mechero.src="images/mechero_litio.png";
+           mensaje.src ="images/info4.png";
+        
+          } else if (myLapiz.src.match("images/lapiz.png")){
+            mechero.src="images/mecheroon.png";
+            completado.src="images/fin.gif"; 
+            mensaje.src="images/completado.png";
+      }
+      }
+
+       </script>
+
+       <script>
+ 
+        function typeWriter(i, message) 
+        {
+            if (i < message.length) 
+            {
+                document.getElementById("info").innerHTML += message[i];
+                i++;
+                setTimeout(function()
+                {
+                    typeWriter(i, message)
+                }, 50);
+            }
+          }
+        
+      </script>
+
+       <script>
+        function changeLapiz() {
+      var lapiz = document.getElementById('myLapiz');
+         if (lapiz.src.match("on")) {
+         lapiz.src = "images/lapiz.png";
+                                                        
+             } else {
+                                                            
+         lapiz.src = "images/lapiz.png";
+         lapiz.classList ="lapiz2";                                     
+             }
+             }
+     </script>
+     <script>
+      var xInic, yInic;
+                 var estaPulsado = false;
+                 
+                 function ratonPulsado(evt) { 
+                     //Obtener la posición de inicio
+                     xInic = evt.clientX;
+                     yInic = evt.clientY;    
+                     estaPulsado = true;
+                     //Para Internet Explorer: Contenido no seleccionable
+                     document.getElementById("myLapiz").unselectable = true;
+                 }
+                 </script>
+                 <script>
+                 function ratonMovido(evt) {
+                     if(estaPulsado) {
+                         //Calcular la diferencia de posición
+                         var xActual = evt.clientX;
+                         var yActual = evt.clientY;    
+                         var xInc = xActual-xInic;
+                         var yInc = yActual-yInic;
+                         xInic = xActual;
+                         yInic = yActual;
+                         
+                         //Establecer la nueva posición
+                         var elemento = document.getElementById("myLapiz");
+                         var position = getPosicion(elemento);
+                         elemento.style.top = (position[0] + yInc) + "px";
+                         elemento.style.left = (position[1] + xInc) + "px";
+                     }
+                 }
+               </script>
+                  <script>
+                 function ratonSoltado(evt) {
+                     estaPulsado = false;
+                     var image = document.getElementById('myLapiz');
+                 if (image.src.match("on")) {
+                     image.src="images/lapiz.png";
+                 }else{
+                     image.src="images/lapiz.png";
+                     image.classList="lapiz2";
+                 }
+                 }
+               </script>
+                
+                 <script>
+                    /*
+                 * Función para obtener la posición en la que se encuentra el
+                 * elemento indicado como parámetro.
+                 * Retorna un array con las coordenadas x e y de la posición
+                 */
+                 function getPosicion(elemento) {
+                     var posicion = new Array(2);
+                     if(document.defaultView && document.defaultView.getComputedStyle) {
+                         posicion[0] = parseInt(document.defaultView.getComputedStyle(elemento, null).getPropertyValue("top"))
+                         posicion[1] = parseInt(document.defaultView.getComputedStyle(elemento, null).getPropertyValue("left"));
+                     } else {
+                         //Para Internet Explorer
+                         posicion[0] = parseInt(elemento.currentStyle.top);             
+                         posicion[1] = parseInt(elemento.currentStyle.left);               
+                     }      
+                     return posicion;
+                 }
+
+                 var el = document.getElementById("myLapiz");
+                 if (el.addEventListener){
+                     el.addEventListener("mousedown", ratonPulsado, false);
+                     el.addEventListener("mouseup", ratonSoltado, false);
+                     document.addEventListener("mousemove", ratonMovido, false);
+                 } else { //Para IE
+                     el.attachEvent('onmousedown', ratonPulsado);
+                     el.attachEvent('onmouseup', ratonSoltado);
+                     document.attachEvent('onmousemove', ratonMovido);
+                 }
+    </script>
+ 
+    <img id="myCobre" onclick="changeCobre()" src="images/cobre2.png" class="cobre"ondblclick="lapiz_cobre()" >
+                                                                                                                    
+    <script>
+    function changeCobre() {
+   var cobre = document.getElementById('myCobre');
+   if (cobre.src.match("on")) {
+    cobre.src = "images/cobre2.png";
+                                                           
+    } else {
+                                                               
+    cobre.src = "images/cobre.png";
+    cobre.classList ="cobre2";
+    cobre.title ="cloruro de cobre";
+                                                               
+        }
+
+            }
+        </script>
+
+        <img id="myLitio" onclick="changeLitio()" src="images/litio.png" class="litio" ondblclick="lapiz_litio()">
+                                                                                                                                                                                                        
+        <script>
+        function changeLitio() {
+        var litio = document.getElementById('myLitio');
+        if (litio.src.match("on")) {
+          litio.src = "images/litio.png";
+                                                                        
+             } else {
+                                                                            
+             litio.src = "images/litio2.png";
+             litio.classList ="litio2";
+                                                                            
+                 }
+
+                     }
+                  </script>
+
+        <img id="myPotasio" onclick="changePotasio()" src="images/potasio.png" class="potasio" ondblclick="lapiz_potasio()" >
+                                                                                                                                                                                                                                                                                            
+                <script>
+                function changePotasio() {
+                var potasio = document.getElementById('myPotasio');
+                if (potasio.src.match("on")) {
+                potasio.src = "images/potasio.png";
+                                                                                        
+            } else {
+                                                                                            
+            potasio.src = "images/potasio2.png";
+              potasio.classList ="potasio2";
+                                                                                            
+                }
+
+                  }
+              </script>
+
+        <img id="myCalcio" onclick="changeCalcio()" src="images/calcio.png" class="calcio" ondblclick="lapiz_calcio()">
+                                                                                                                                                                                                                                                                                                                                                                                                                            
+                <script>
+        function changeCalcio() {
+        var calcio = document.getElementById('myCalcio');
+        if (calcio.src.match("on")) {
+        calcio.src = "images/calcio.png";
+                                                                                                                            
+        } else {
+                                                                                                                                
+        calcio.src = "images/calcio2.png";
+        calcio.classList ="calcio2";
+                                                                                                                                
+        }
+
+        }
+        </script>
+
+        <img id="mySodio" onclick="changeSodio()" src="images/sodio.png" class="sodio" ondblclick="lapiz_sodio()">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        <script>
+        function changeSodio() {
+        var sodio = document.getElementById('mySodio');
+        if (sodio.src.match("on")) {
+        sodio.src = "images/sodio.png";
+                                                                                                                                            
+        } else {
+                                                                                                                                                
+        sodio.src = "images/sodio2.png";
+        sodio.classList ="sodio2";
+                                                                                                                                                
+        }
+
+          }
+        </script>
+
+        <script>
+                  function lapiz_cobre() {
+                  var image = document.getElementById('myLapiz');
+                   if (image.src.match("on")) {
+                  image.src="images/lapiz.png";
+                    }else{
+               image.src="images/lapiz_cobre.png";
+               image.title="Lapiz con cobre";
+               image.classList="lapiz2";
+    }
+}
+                   </script>
+
+                   <script>
+                   function lapiz_potasio() {
+                  var p = document.getElementById('myLapiz');
+                   if (p.src.match("on")) {
+                  p.src="images/lapiz.png";
+                    }else{
+               p.src="images/lapiz_potasio.png";
+               p.title="Lapiz con potasio";
+               p.classList="lapiz2";
+    }
+}
+ 
+                   </script>
+
+                  <script>
+                      function lapiz_sodio() {
+                      var i = document.getElementById('myLapiz');
+                      if (i.src.match("on")) {
+                      i.src="images/lapiz.png";
+                        }else{
+                  i.src="images/lapiz_sodio.png";
+                  i.title="Lapiz con sodio";
+                  i.classList="lapiz2";
+                  }
+                  }
+                      </script>
+
+                      <script>
+                        function lapiz_litio(){
+                          var litio = document.getElementById('myLapiz');
+                          if (litio.src.match("on")){
+                            litio.src="images/lapiz.png";
+                          }else {
+                            litio.src="images/lapiz_litio.png";
+                            litio.title= "Lapiz con litio";
+                            litio.classList="lapiz2";
+                          }
+                        }
+                      </script>
+
+                            <script>
+                                function lapiz_calcio(){
+                                  var calcio = document.getElementById('myLapiz');
+                                  if (calcio.src.match("on")){
+                                    calcio.src="images/lapiz.png";
+                                  }else {
+                                    calcio.src="images/lapiz_calcio.png";
+                                    calcio.title= "Lapiz con calcio";
+                                    calcio.classList="lapiz2";
+                                  }
+                                }
+                              </script>
+                   
+                              <script>
+                                function lapiz_cobre() {
+                                var image = document.getElementById('myLapiz');
+                                 if (image.src.match("on")) {
+                                image.src="images/lapiz.png";
+                                  }else{
+                             image.src="images/lapiz_cobre.png";
+                             image.title="Lapiz con cobre";
+                             image.classList="lapiz2";
+                  }
+              }
+                                 </script>
+              
+                                 <script>
+                                 function lapiz_potasio() {
+                                var p = document.getElementById('myLapiz');
+                                 if (p.src.match("on")) {
+                                p.src="images/lapiz.png";
+                                  }else{
+                             p.src="images/lapiz_potasio.png";
+                             p.title="Lapiz con potasio";
+                             p.classList="lapiz2";
+                  }
+              }
+               
+                                 </script>
+              
+                                <script>
+                                    function lapiz_sodio() {
+                                    var i = document.getElementById('myLapiz');
+                                    if (i.src.match("on")) {
+                                    i.src="images/lapiz.png";
+                                      }else{
+                                i.src="images/lapiz_sodio.png";
+                                i.title="Lapiz con sodio";
+                                i.classList="lapiz2";
+                                }
+                                }
+                                    </script>
+              
+                                    <script>
+                                      function lapiz_litio(){
+                                        var litio = document.getElementById('myLapiz');
+                                        if (litio.src.match("on")){
+                                          litio.src="images/lapiz.png";
+                                        }else {
+                                          litio.src="images/lapiz_litio.png";
+                                          litio.title= "Lapiz con litio";
+                                          litio.classList="lapiz2";
+                                        }
+                                      }
+                                    </script>
+              
+                                          <script>
+                                              function lapiz_calcio(){
+                                                var calcio = document.getElementById('myLapiz');
+                                                if (calcio.src.match("on")){
+                                                  calcio.src="images/lapiz.png";
+                                                }else {
+                                                  calcio.src="images/lapiz_calcio.png";
+                                                  calcio.title= "Lapiz con calcio";
+                                                  calcio.classList="lapiz2";
+                                                }
+                                              }
+                                            </script>
+
+                                            <img src="images/elementos .png" class="elementos">
+
+                                            <img src="images/agua.png" class="agua">
+
+                                            <script>
+                                              
+                                              setTimeout(function() {
+                                                document.getElementById('imagenAnimada').classList.add('hidden');
+                                              }, 5000); // 
+
+                                              setTimeout(function() {
+                                                document.getElementById('imagenAnimada2').classList.add('hidden');
+                                              }, 10000); // 
+
+                                              setTimeout(function() {
+                                                document.getElementById('imagenAnimada3').classList.add('hidden');
+                                              }, 15000); // 
+
+                                              setTimeout(function() {
+                                                document.getElementById('imagenAnimada4').classList.add('hidden');
+                                              }, 20000); // 
+
+                                              setTimeout(function() {
+                                                document.getElementById('imagenAnimada5').classList.add('hidden');
+                                              }, 25000); // 
+
+                                              setTimeout(function() {
+                                                document.getElementById('imagenAnimada6').classList.add('hidden');
+                                              }, 30000); // 
+                                            </script>
+                                            <script>
+
+                                             // Espera 5 segundos antes de ocultar .es y .es2
+                                            setTimeout(function() {
+                                              document.getElementById('imagenAnimada').classList.add('hidden');
+                                              document.querySelector('.es2').classList.add('hidden');
+                                            }, 5000);
+
+                                            // Espera 5 segundos antes de mostrar .es2
+                                            setTimeout(function() {
+                                              document.querySelector('.es2').classList.remove('hidden');
+                                            }, 5000);
+
+                                            // Mostrar la imagen .es3 después de 10 segundos
+                                            setTimeout(function() {
+                                              document.querySelector('.es3').classList.remove('hidden');
+                                            }, 10000);
+                                          </script>
+
+                                          <script>
+                                            setTimeout(function() {
+                                            document.getElementById('imagenAnimada').classList.add('hidden');
+                                            document.querySelector('.es3').classList.add('hidden');
+                                          }, 10000);
+
+                                          // Espera 5 segundos antes de mostrar .es2
+                                          setTimeout(function() {
+                                            document.querySelector('.es3').classList.remove('hidden');
+                                          }, 10000);
+
+                                          // Mostrar la imagen .es3 después de 10 segundos
+                                          setTimeout(function() {
+                                            document.querySelector('.es4').classList.remove('hidden');
+                                          }, 15000);
+                                          </script>
+
+                                          <script>
+                                            setTimeout(function() {
+                                            document.getElementById('imagenAnimada').classList.add('hidden');
+                                            document.querySelector('.es4').classList.add('hidden');
+                                          }, 15000);
+
+                                          // Espera 5 segundos antes de mostrar .es2
+                                          setTimeout(function() {
+                                            document.querySelector('.es4').classList.remove('hidden');
+                                          }, 15000);
+
+                                          // Mostrar la imagen .es3 después de 10 segundos
+                                          setTimeout(function() {
+                                            document.querySelector('.es5').classList.remove('hidden');
+                                          }, 20000);
+                                          </script>
+
+                                          <script>
+                                            setTimeout(function() {
+                                            document.getElementById('imagenAnimada').classList.add('hidden');
+                                            document.querySelector('.es5').classList.add('hidden');
+                                          }, 20000);
+
+                                          // Espera 5 segundos antes de mostrar .es2
+                                          setTimeout(function() {
+                                            document.querySelector('.es5').classList.remove('hidden');
+                                          }, 20000);
+
+                                          // Mostrar la imagen .es3 después de 10 segundos
+                                          setTimeout(function() {
+                                            document.querySelector('.es6').classList.remove('hidden');
+                                          }, 25000);
+                                          </script>
+
+                                          <script>
+                                            setTimeout(function() {
+                                            document.getElementById('imagenAnimada').classList.add('hidden');
+                                            document.querySelector('.es6').classList.add('hidden');
+                                          }, 25000);
+
+                                          // Espera 5 segundos antes de mostrar .es2
+                                          setTimeout(function() {
+                                            document.querySelector('.es6').classList.remove('hidden');
+                                          }, 25000);
+
+                                          // Mostrar la imagen .es3 después de 10 segundos
+                                          setTimeout(function() {
+                                            document.querySelector('.es7').classList.remove('hidden');
+                                          }, 30000);
+                                        </script>
+
+
+                                        <style>
+                                          body {
+                                              background-image: url('images/PincipalRedimensionado.png');
+                                              background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+                                              background-repeat: no-repeat; /* Evita que la imagen se repita */
+                                              background-position: center; /* Centra la imagen */
+                                              margin: 0; /* Elimina márgenes predeterminados */
+                                              height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
+                                          }
+                                      </style>
+                                      
+
+                                      <script>
+                                        document.getElementById('logout-link').addEventListener('click', function(event) {
+                                          event.preventDefault(); // Evita que el enlace se siga de inmediato
+                                          Swal.fire({
+                                            title: 'CERRAR LABCEI',
+                                            text: "Estas Seguro de Cerrar Sesion!",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#0d5c71 ',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Cerrar!'
+                                          }).then((result) => {
+                                            if (result.isConfirmed) {
+                                              Swal.fire(
+                                                'SALISTE DE LABCEI',
+                                                'Cerrada Correctamente.',
+                                                'success'
+                                              ).then(() => {
+                                                window.location.href = this.href; // Redirige si el usuario confirma
+                                              });
+                                            }
+                                          });
+                                        });
+                                      </script> 
+</body>
+</html>
+ 
+        

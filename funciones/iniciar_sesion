@@ -1,0 +1,20 @@
+<?php
+    require "conecta.php";
+    $con = conecta();
+
+    $correo = $_POST['user'];
+    $pass = $_POST['pass'];
+
+    $sql = "SELECT * FROM usuarios WHERE correo='$correo' AND pass='$pass'";
+    $res = $con->query($sql);
+    $rows = $res->num_rows;
+    if($rows == 0){
+        echo $rows;
+    }
+    else{
+        $row = $res->fetch_array();
+        echo 1;
+        session_start();
+        $_SESSION['sesion_id']= $row['id'];
+    }
+?>
