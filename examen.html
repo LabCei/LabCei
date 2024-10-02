@@ -5,22 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Examen</title>
     <link rel="stylesheet" href="css/style_ex.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
+<style>
+    .certificate {
+        border: 10px solid #0d5c71;
+        padding: 50px;
+        background-image: url('images/certificado.png');
+        width: 900px; /* Ajusta según el tamaño deseado */
+        height: 575px; /* Ajusta según el tamaño deseado */
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: relative;
+        display: none; /* Ocultar inicialmente */
+    }
+    
+    h1 {
+        color: #0d5c71;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .recipient {
+        font-size: 1.8em;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #333;
+    }
+    .description {
+        font-size: 1.2em;
+        margin: 20px 0;
+        color: #555;
+    }
+    .footer {
+        margin-top: 40px;
+        font-size: 1em;
+        color: #777;
+    }
+    .date {
+        margin-top: 30px;
+        font-size: 1em;
+    }
+</style>
 <body>
 
-    <header class="header_section">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg custom_nav-container">
-                <img src="images/logo.png" alt="">
-                LABCEI
-            </nav>
-        </div>
-    </header>
+<header class="header_section">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <img src="images/logo.png" alt="">
+            LABCEI
+        </nav>
+    </div>
+</header>
 
-    <div class="container">
-        <h1>Examen de Química</h1>
-        <form id="examen">
-            <div class="pregunta">
+<div class="container">
+    <h1>Examen de Química</h1>
+    <form id="examen">
+        <div class="pregunta">
             <p>1. ¿Cómo se le llama al fenómeno que ocasiona el cambio de color en la llama?</p>
             <div class="opciones">
                 <label><input type="radio" name="pregunta1" value="a"> a) Espectroscopía de emisión de llama</label><br>
@@ -123,6 +165,23 @@
     </form>
 </div>
 
+<div class="certificate" id="certificate">
+    <h1>Certificado de Finalización</h1>
+    <div class="recipient">Este certificado se otorga a:</div>
+    <div class="recipient" id="recipient-name">[Nombre del Estudiante]</div>
+    <div class="description">
+        Por haber completado con éxito el curso de <strong>LabCei</strong>.
+    </div>
+    <div>SCORE:</div>
+    <div id="score">[Puntuación]</div>
+    <div class="footer">
+        Fecha: <span class="date" id="date">[Fecha]</span>
+    </div>
+    <br><br>
+    <button style="background-color: aliceblue; color: black;" id="generate-pdf">labcei@gmail.com</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 <script>
     document.getElementById("examen").addEventListener("submit", function(event) {
         event.preventDefault(); // Evita que el formulario se envíe
@@ -130,6 +189,7 @@
         // Respuestas correctas
         const respuestasCorrectas = ['a', 'd', 'b', 'c', 'c', 'a', 'a', 'c', 'd', 'b'];
         let puntaje = 0;
+        const nombreEstudiante = "Ali Gonzalez Huerta"; // Cambia esto por un input si es necesario
 
         // Iterar sobre cada pregunta
         for (let i = 1; i <= respuestasCorrectas.length; i++) {
@@ -139,9 +199,62 @@
             }
         }
 
-        // Mostrar resultado
-        alert(`Tu puntaje total es: ${puntaje} puntos.`);
+        // Mostrar resultado con diferente contenido basado en la puntuación
+        if (puntaje > 60) {
+            Swal.fire({
+                title: '¡Felicidades!',
+                text: `Tu puntaje total es: ${puntaje} puntos.`,
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonText: 'Descargar Certificado',
+                cancelButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    mostrarCertificado(puntaje, nombreEstudiante);
+                }
+            });
+        } else {
+            Swal.fire({
+                title: 'Resultado',
+                text: `Tu puntaje total es: ${puntaje} puntos. Debes intentarlo de nuevo.`,
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            });
+        }
     });
+
+    function mostrarCertificado(puntaje, nombreEstudiante) {
+        const element = document.getElementById('certificate');
+        document.getElementById('recipient-name').textContent = nombreEstudiante;
+        document.getElementById('score').textContent = puntaje;
+        const fechaActual = new Intl.DateTimeFormat('es-ES', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        }).format(new Date());
+        
+        document.getElementById('date').textContent = fechaActual;
+        
+        // Mostrar el certificado antes de generar el PDF
+        element.style.display = 'block';
+
+        // Generar el PDF
+        html2pdf()
+        .set({
+            margin: 0.5, // Ajusta los márgenes
+            filename: 'certificado.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+        })
+        .from(element)
+        .save()
+        .then(() => {
+            // Ocultar el certificado nuevamente después de generar el PDF
+            element.style.display = 'none';
+        });
+    
+    }
 </script>
 </body>
 </html>
