@@ -51,6 +51,8 @@
                         alert("Se detectó un rostro humano.");
                     } else {
                         alert("No se detectó ningún rostro humano.");
+                        document.getElementById('foto').value = ""; // Limpiar el campo de archivo
+                        document.getElementById('preview-img').src = "https://www.pngall.com/wp-content/uploads/5/Profile.png"; // Restablecer la imagen de vista previa
                     }
                 };
             };
@@ -176,7 +178,7 @@
                                 <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Código de alumno" required>
                             </div>
                             <div class="form-group">
-                                <input type="file" class="form-control" id="foto" name="foto" accept="image/*" onchange="previewImage();">
+                                <input type="file" class="form-control" id="foto" name="foto" accept="image/*" onchange="previewImage();" required>
                             </div>
                             <div class="foto-preview">
                                 <img id="preview-img" src="https://www.pngall.com/wp-content/uploads/5/Profile.png" />
